@@ -1,342 +1,634 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div class="site-wrapper">
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--electric-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3) {
-    --pill-accent: var(--french-violet);
-  }
-
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5),
-  .pill-group .pill:nth-child(6n + 6) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" [class.menu-open]="mobileOpen()">
+    <div class="container nav-inner">
+      <div class="logo" (click)="go('hero')">
+        <span class="logo-sub">RESTORAN</span>
+        <span class="logo-main">ERP TIZIMI</span>
+      </div>
+      <ul class="nav-links">
+        <li (click)="go('hero')">{{ t().navHome }}</li>
+        <li (click)="go('modules')">{{ t().navModules }}</li>
+        <li (click)="go('erp')">{{ t().navFeatures }}</li>
+        <li (click)="go('about')">{{ t().navBenefits }}</li>
+        <li (click)="go('contact')">{{ t().navContact }}</li>
+      </ul>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button [class.lang-active]="lang() === 'uz'" (click)="setLang('uz')">UZ</button>
+          <button [class.lang-active]="lang() === 'en'" (click)="setLang('en')">EN</button>
+          <button [class.lang-active]="lang() === 'ru'" (click)="setLang('ru')">RU</button>
+        </div>
+        <button class="nav-cta" (click)="go('contact')">{{ t().navCta }}</button>
+        <button class="hamburger" (click)="toggle()" [class.active]="mobileOpen()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
+    <div class="mobile-nav" [class.open]="mobileOpen()">
+      <ul>
+        <li (click)="go('hero')">{{ t().navHome }}</li>
+        <li (click)="go('modules')">{{ t().navModules }}</li>
+        <li (click)="go('erp')">{{ t().navFeatures }}</li>
+        <li (click)="go('about')">{{ t().navBenefits }}</li>
+        <li (click)="go('contact')">{{ t().navContact }}</li>
+      </ul>
+      <div class="mobile-lang-switch">
+        <button [class.lang-active]="lang() === 'uz'" (click)="setLang('uz')">UZ</button>
+        <button [class.lang-active]="lang() === 'en'" (click)="setLang('en')">EN</button>
+        <button [class.lang-active]="lang() === 'ru'" (click)="setLang('ru')">RU</button>
+      </div>
+      <button class="mobile-cta" (click)="go('contact')">{{ t().navCta }} →</button>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-tag">✦ {{ t().heroTag }}</span>
+        <h1 class="hero-title">
+          <span class="gold">{{ t().heroL1 }}</span><br>
+          {{ t().heroL2 }}<br>
+          <span class="gold">{{ t().heroL3 }}</span>
+        </h1>
+        <p class="hero-desc">{{ t().heroDesc }}</p>
+        <div class="hero-buttons">
+          <button class="btn-primary" (click)="go('contact')">{{ t().heroBtn1 }}</button>
+          <button class="btn-ghost" (click)="go('modules')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            {{ t().heroBtn2 }}
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">{{ t().heroS1 }}</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat">
+            <span class="stat-num">30s</span>
+            <span class="stat-label">{{ t().heroS2 }}</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat">
+            <span class="stat-num">3x</span>
+            <span class="stat-label">{{ t().heroS3 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>{{ t().heroScroll }}</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="section-header" data-anim>
+        <span class="section-tag">{{ t().feTag }}</span>
+        <h2 class="section-title">{{ t().feTitle }} <span class="gold">{{ t().feTitleGold }}</span> {{ t().feTitleEnd }}</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-anim data-d="1">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>{{ t().feC1Title }}</h3>
+          <p>{{ t().feC1Desc }}</p>
+        </div>
+        <div class="feature-card feature-card-active" data-anim data-d="2">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
             </svg>
-          </a>
-        }
-      </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://x.com/angular"
-          aria-label="X"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="X"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+          </div>
+          <h3>{{ t().feC2Title }}</h3>
+          <p>{{ t().feC2Desc }}</p>
+        </div>
+        <div class="feature-card" data-anim data-d="3">
+          <div class="feature-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <h3>{{ t().feC3Title }}</h3>
+          <p>{{ t().feC3Desc }}</p>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+  </section>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="section featured-section" id="howit">
+    <div class="container featured-inner">
+      <div class="featured-image-wrap" data-anim>
+        <div class="order-flow-card">
+          <div class="flow-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+            {{ t().flHeader }}
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step flow-step-done">
+              <div class="flow-step-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="flow-step-info">
+                <span class="flow-step-title">{{ t().flS1 }}</span>
+                <span class="flow-step-time">{{ t().flT1 }}</span>
+              </div>
+              <span class="flow-step-badge done">{{ t().flDone }}</span>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step flow-step-active">
+              <div class="flow-step-icon active">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2h18M3 22h18M12 2v4M12 18v4M4 7h16a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>
+              </div>
+              <div class="flow-step-info">
+                <span class="flow-step-title">{{ t().flS2 }}</span>
+                <span class="flow-step-time">{{ t().flT2 }}</span>
+              </div>
+              <span class="flow-step-badge active-badge">{{ t().flInProgress }}</span>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step">
+              <div class="flow-step-icon pending">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="flow-step-info">
+                <span class="flow-step-title">{{ t().flS3 }}</span>
+                <span class="flow-step-time">{{ t().flT3 }}</span>
+              </div>
+              <span class="flow-step-badge pending-badge">{{ t().flPending }}</span>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step">
+              <div class="flow-step-icon pending">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div class="flow-step-info">
+                <span class="flow-step-title">{{ t().flS4 }}</span>
+                <span class="flow-step-time">{{ t().flT4 }}</span>
+              </div>
+              <span class="flow-step-badge pending-badge">{{ t().flPending }}</span>
+            </div>
+          </div>
+          <div class="flow-footer">
+            <div class="flow-stat"><span class="flow-stat-num">4</span><span class="flow-stat-lbl">{{ t().flDishes }}</span></div>
+            <div class="flow-stat"><span class="flow-stat-num gold">185 000</span><span class="flow-stat-lbl">so'm</span></div>
+            <div class="flow-stat"><span class="flow-stat-num">{{ t().flWaiter }}:</span><span class="flow-stat-lbl">Sardor</span></div>
+          </div>
+        </div>
+      </div>
 
+      <div class="featured-content" data-anim data-d="2">
+        <span class="section-tag">{{ t().hwTag }}</span>
+        <h2 class="section-title">
+          {{ t().hwTitle1 }} <span class="gold">{{ t().hwTitleGold }}</span><br>{{ t().hwTitle2 }}
+        </h2>
+        <p class="featured-desc">{{ t().hwDesc1 }}</p>
+        <p class="featured-desc">{{ t().hwDesc2 }}</p>
+        <div class="featured-meta">
+          <span class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            {{ t().hwM1 }}
+          </span>
+          <span class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            {{ t().hwM2 }}
+          </span>
+          <span class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            {{ t().hwM3 }}
+          </span>
+        </div>
+        <button class="btn-outline" (click)="go('contact')">{{ t().hwBtn }} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </section>
 
-<router-outlet />
+  <!-- ==================== MODULES ==================== -->
+  <section class="section menu-section" id="modules">
+    <div class="container">
+      <div class="section-header" data-anim>
+        <span class="section-tag">{{ t().moTag }}</span>
+        <h2 class="section-title">{{ t().moTitle }} <span class="gold">{{ t().moTitleGold }}</span></h2>
+        <p class="section-desc">{{ t().moDesc }}</p>
+      </div>
+
+      <div class="menu-grid modules-grid">
+        <div class="dish-card module-card" data-anim data-d="1">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#1a3820,#0d2413)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[0].name }}</h3>
+            <p class="dish-desc">{{ t().modules[0].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[0].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="2">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#2a1a0d,#1a0e05)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[1].name }}</h3>
+            <p class="dish-desc">{{ t().modules[1].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[1].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="3">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#0d1a2a,#07101a)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M3 2h18M3 22h18M12 2v4M12 18v4M4 7h16a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[2].name }}</h3>
+            <p class="dish-desc">{{ t().modules[2].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[2].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="1">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#1a2a0d,#111a07)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[3].name }}</h3>
+            <p class="dish-desc">{{ t().modules[3].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[3].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="2">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#1f1a2a,#13111a)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[4].name }}</h3>
+            <p class="dish-desc">{{ t().modules[4].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[4].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="3">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#2a1a1a,#1a0e0e)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[5].name }}</h3>
+            <p class="dish-desc">{{ t().modules[5].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[5].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="1">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#0d2a2a,#071a1a)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[6].name }}</h3>
+            <p class="dish-desc">{{ t().modules[6].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[6].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="2">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#1a2a1a,#0e1a0e)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M4 6h16M4 12h16M4 18h7"/><path d="M15 18l2 2 4-4"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[7].name }}</h3>
+            <p class="dish-desc">{{ t().modules[7].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[7].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+
+        <div class="dish-card module-card" data-anim data-d="3">
+          <div class="module-img-wrap" style="background: linear-gradient(135deg,#2a2a0d,#1a1a07)">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="dish-body">
+            <h3 class="dish-name">{{ t().modules[8].name }}</h3>
+            <p class="dish-desc">{{ t().modules[8].desc }}</p>
+            <div class="dish-footer"><span class="module-tag-badge">{{ t().modules[8].tag }}</span><button class="dish-btn" (click)="go('contact')">{{ t().moView }}</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-more" data-anim>
+        <button class="btn-outline" (click)="go('contact')">{{ t().moMoreBtn }} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ERP MOCKUP ==================== -->
+  <section class="section erp-mock-section" id="erp">
+    <div class="container">
+      <div class="section-header" data-anim>
+        <span class="section-tag">{{ t().erTag }}</span>
+        <h2 class="section-title">{{ t().erTitle }} <span class="gold">{{ t().erTitleGold }}</span> {{ t().erTitleEnd }}</h2>
+        <p class="section-desc">{{ t().erDesc }}</p>
+      </div>
+      <div class="erp-screens">
+        <div class="erp-screen" data-anim data-d="1">
+          <div class="erp-window">
+            <div class="erp-titlebar">
+              <div class="erp-dots"><span class="erp-dot red"></span><span class="erp-dot yellow"></span><span class="erp-dot green"></span></div>
+              <div class="erp-url-bar">restoran.erp.uz / orders</div>
+              <div style="width:52px"></div>
+            </div>
+            <div class="erp-body">
+              <div class="erp-sidebar">
+                <div class="erp-nav-item erp-nav-active"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg> {{ t().navModules }}</div>
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> {{ t().modules[1].tag }}</div>
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> {{ t().modules[4].tag }}</div>
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> {{ t().modules[5].tag }}</div>
+              </div>
+              <div class="erp-main-area">
+                <div class="erp-topbar">
+                  <span class="erp-page-title">{{ t().modules[0].name }}</span>
+                  <button class="erp-add-btn">+</button>
+                </div>
+                <div class="erp-kpi-row">
+                  <div class="erp-kpi erp-kpi-gold"><span class="erp-kpi-num">24</span><span class="erp-kpi-lbl">Faol</span></div>
+                  <div class="erp-kpi"><span class="erp-kpi-num">87</span><span class="erp-kpi-lbl">Bajarildi</span></div>
+                  <div class="erp-kpi"><span class="erp-kpi-num">3</span><span class="erp-kpi-lbl">Kutmoqda</span></div>
+                </div>
+                <table class="erp-tbl">
+                  <thead><tr><th>№</th><th>Stol</th><th>Taom</th><th>Summa</th><th>Holat</th></tr></thead>
+                  <tbody>
+                    <tr class="erp-row-hi"><td>#341</td><td>5</td><td>4 ta</td><td class="erp-price-cell">185 000</td><td><span class="erp-badge erp-badge-warn">{{ t().flInProgress }}</span></td></tr>
+                    <tr><td>#340</td><td>2</td><td>2 ta</td><td class="erp-price-cell">92 000</td><td><span class="erp-badge erp-badge-ok">{{ t().flDone }}</span></td></tr>
+                    <tr><td>#339</td><td>8</td><td>6 ta</td><td class="erp-price-cell">340 000</td><td><span class="erp-badge erp-badge-ok">{{ t().flDone }}</span></td></tr>
+                    <tr><td>#338</td><td>1</td><td>3 ta</td><td class="erp-price-cell">145 000</td><td><span class="erp-badge erp-badge-ok">{{ t().flDone }}</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <p class="erp-screen-caption">{{ t().erCap1 }}</p>
+        </div>
+
+        <div class="erp-screen" data-anim data-d="2">
+          <div class="erp-window">
+            <div class="erp-titlebar">
+              <div class="erp-dots"><span class="erp-dot red"></span><span class="erp-dot yellow"></span><span class="erp-dot green"></span></div>
+              <div class="erp-url-bar">restoran.erp.uz / reports</div>
+              <div style="width:52px"></div>
+            </div>
+            <div class="erp-body">
+              <div class="erp-sidebar">
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg> {{ t().navModules }}</div>
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> {{ t().modules[1].tag }}</div>
+                <div class="erp-nav-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> {{ t().modules[4].tag }}</div>
+                <div class="erp-nav-item erp-nav-active"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg> {{ t().modules[5].tag }}</div>
+              </div>
+              <div class="erp-main-area">
+                <div class="erp-topbar">
+                  <span class="erp-page-title">{{ t().modules[5].name }}</span>
+                  <span class="erp-date-range">2026</span>
+                </div>
+                <div class="erp-chart-row">
+                  <div class="erp-chart-box">
+                    <div class="erp-chart-title">Top taomlar</div>
+                    <div class="erp-bars">
+                      <div class="erp-bar-item"><span class="erp-bar-label">Plov</span><div class="erp-bar-track"><div class="erp-bar-fill" style="width:88%"></div></div><span class="erp-bar-val">88%</span></div>
+                      <div class="erp-bar-item"><span class="erp-bar-label">Shashlik</span><div class="erp-bar-track"><div class="erp-bar-fill" style="width:72%"></div></div><span class="erp-bar-val">72%</span></div>
+                      <div class="erp-bar-item"><span class="erp-bar-label">Lag'mon</span><div class="erp-bar-track"><div class="erp-bar-fill" style="width:65%"></div></div><span class="erp-bar-val">65%</span></div>
+                      <div class="erp-bar-item"><span class="erp-bar-label">Manti</span><div class="erp-bar-track"><div class="erp-bar-fill" style="width:54%"></div></div><span class="erp-bar-val">54%</span></div>
+                    </div>
+                  </div>
+                  <div class="erp-chart-box">
+                    <div class="erp-chart-title">{{ t().abBenRev }}</div>
+                    <div class="erp-col-chart">
+                      <div class="erp-col" style="height:42%"><span>Mar</span></div>
+                      <div class="erp-col" style="height:62%"><span>Apr</span></div>
+                      <div class="erp-col" style="height:52%"><span>May</span></div>
+                      <div class="erp-col erp-col-active" style="height:86%"><span>Iyn</span></div>
+                    </div>
+                    <div class="erp-chart-footer">
+                      <span class="erp-trend up">↑ 24%</span>
+                      <span class="erp-chart-total">12.4M</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="erp-screen-caption">{{ t().erCap2 }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section about-section" id="about">
+    <div class="container about-inner">
+      <div class="about-content" data-anim>
+        <span class="section-tag">{{ t().abTag }}</span>
+        <h2 class="section-title">{{ t().abTitle }} <span class="gold">{{ t().abTitleGold }}</span></h2>
+        <p class="about-desc">{{ t().abDesc }}</p>
+        <div class="about-features">
+          @for (b of t().aboutBenefits; track $index) {
+            <div class="about-feat">
+              <div class="about-feat-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div><span class="about-feat-title">{{ b.title }}</span><span class="about-feat-desc">{{ b.desc }}</span></div>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="about-visual" data-anim data-d="2">
+        <div class="benefits-card">
+          <div class="benefits-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            {{ t().abBenHeader }}
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-bar-wrap">
+              <div class="benefit-label">{{ t().abBenErr }}</div>
+              <div class="benefit-compare">
+                <div class="benefit-before"><span>{{ t().abBefore }}</span><div class="benefit-bar-t"><div class="benefit-fill-t red" style="width:90%"></div></div><span>90%</span></div>
+                <div class="benefit-after"><span>{{ t().abAfter }}</span><div class="benefit-bar-t"><div class="benefit-fill-t green" style="width:10%"></div></div><span>10%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-bar-wrap">
+              <div class="benefit-label">{{ t().abBenSpeed }}</div>
+              <div class="benefit-compare">
+                <div class="benefit-before"><span>{{ t().abBefore }}</span><div class="benefit-bar-t"><div class="benefit-fill-t orange" style="width:40%"></div></div><span>1x</span></div>
+                <div class="benefit-after"><span>{{ t().abAfter }}</span><div class="benefit-bar-t"><div class="benefit-fill-t green" style="width:100%"></div></div><span>2.5x</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-bar-wrap">
+              <div class="benefit-label">{{ t().abBenRev }}</div>
+              <div class="benefit-compare">
+                <div class="benefit-before"><span>{{ t().abBefore }}</span><div class="benefit-bar-t"><div class="benefit-fill-t orange" style="width:65%"></div></div><span>base</span></div>
+                <div class="benefit-after"><span>{{ t().abAfter }}</span><div class="benefit-bar-t"><div class="benefit-fill-t green" style="width:90%"></div></div><span>+35%</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="benefits-footer">
+            <div class="benefits-stat"><span class="benefits-num">3</span><span class="benefits-lbl">{{ t().abMonth }}</span></div>
+            <div class="benefits-stat"><span class="benefits-num gold">ROI</span><span class="benefits-lbl">300%+</span></div>
+          </div>
+        </div>
+        <div class="about-stat about-stat-left"><span class="about-stat-num">99.9%</span><span class="about-stat-label">Uptime</span></div>
+        <div class="about-stat about-stat-right"><span class="about-stat-num">24/7</span><span class="about-stat-label">{{ t().st4 }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STATS BANNER ==================== -->
+  <section class="erp-banner">
+    <div class="container erp-inner" data-anim>
+      <div class="erp-stat"><span class="erp-num">10+</span><span class="erp-label">{{ t().st1 }}</span></div>
+      <div class="erp-divider"></div>
+      <div class="erp-stat"><span class="erp-num">30s</span><span class="erp-label">{{ t().st2 }}</span></div>
+      <div class="erp-divider"></div>
+      <div class="erp-stat"><span class="erp-num">99.9%</span><span class="erp-label">{{ t().st3 }}</span></div>
+      <div class="erp-divider"></div>
+      <div class="erp-stat"><span class="erp-num">24/7</span><span class="erp-label">{{ t().st4 }}</span></div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-inner">
+      <div class="contact-info-col" data-anim>
+        <span class="section-tag">{{ t().coTag }}</span>
+        <h2 class="section-title">{{ t().coTitle }} <span class="gold">{{ t().coTitleGold }}</span> {{ t().coTitleEnd }}</h2>
+        <p class="contact-sub">{{ t().coSub }}</p>
+        <div class="contact-items">
+          <a href="tel:+998940044260" class="contact-item">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-item-text"><span class="contact-item-label">{{ t().coPhone }}</span><span class="contact-item-val">+998 94 0044 26 04</span></div>
+          </a>
+          <a href="https://t.me/ilhomuzb0001" target="_blank" class="contact-item">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+            <div class="contact-item-text"><span class="contact-item-label">{{ t().coTelegram }}</span><span class="contact-item-val">&#64;ilhomuzb0001</span></div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="contact-item-text"><span class="contact-item-label">{{ t().coDemo }}</span><span class="contact-item-val">{{ t().coDemoVal }}</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="contact-item-text"><span class="contact-item-label">{{ t().coAddr }}</span><span class="contact-item-val">{{ t().coAddrVal }}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="send()" #f="ngForm" data-anim data-d="2">
+        <div class="form-title">{{ t().foTitle }}</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>{{ t().foName }}</label>
+            <input type="text" name="name" [(ngModel)]="form.name" [placeholder]="t().foNamePh" required/>
+          </div>
+          <div class="form-group">
+            <label>{{ t().foPhone }}</label>
+            <input type="tel" name="phone" [(ngModel)]="form.phone" [placeholder]="t().foPhonePh" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>{{ t().foRestaurant }}</label>
+          <input type="text" name="email" [(ngModel)]="form.email" [placeholder]="t().foRestPh"/>
+        </div>
+        <div class="form-group">
+          <label>{{ t().foSubject }}</label>
+          <select name="subject" [(ngModel)]="form.subject">
+            @for (opt of t().foSubjects; track $index) {
+              <option>{{ opt }}</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label>{{ t().foMessage }}</label>
+          <textarea name="message" [(ngModel)]="form.message" rows="4" [placeholder]="t().foMsgPh"></textarea>
+        </div>
+
+        @if (status() === 'success') {
+          <div class="form-alert form-alert-ok">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            {{ t().foSuccess }}
+          </div>
+        }
+        @if (status() === 'error') {
+          <div class="form-alert form-alert-err">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            {{ t().foError }}
+          </div>
+        }
+        <button type="submit" class="form-submit" [disabled]="status() === 'sending'">
+          @if (status() === 'sending') {
+            <span class="spinner"></span> {{ t().foSending }}
+          } @else {
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            {{ t().foSubmit }}
+          }
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo logo-footer">
+          <span class="logo-sub">RESTORAN</span>
+          <span class="logo-main">ERP TIZIMI</span>
+        </div>
+        <p class="footer-brand-desc">{{ t().ftDesc }}</p>
+        <div class="footer-socials">
+          <a href="tel:+998940044260" class="social-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a href="https://t.me/ilhomuzb0001" target="_blank" class="social-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+          <a href="mailto:info@restoran-erp.uz" class="social-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">{{ t().ftModCol }}</h4>
+        <ul class="footer-links">
+          @for (lnk of t().ftLinks1; track $index) {
+            <li (click)="go('modules')">{{ lnk }}</li>
+          }
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">{{ t().ftFeatCol }}</h4>
+        <ul class="footer-links">
+          @for (lnk of t().ftLinks2; track $index) {
+            <li (click)="go('erp')">{{ lnk }}</li>
+          }
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">{{ t().ftContactCol }}</h4>
+        <ul class="footer-links footer-contact">
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +998 94 0044 26 04</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> &#64;ilhomuzb0001</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {{ t().coAddrVal }}</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> {{ t().ftHours }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>{{ t().ftCopy }}</p>
+      <div class="footer-bottom-links">
+        <span>{{ t().ftPrivacy }}</span>
+        <span>{{ t().ftTerms }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
